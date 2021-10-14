@@ -1,0 +1,49 @@
+/*============= NAVIGATION =============*/
+
+
+.navbar{
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+
+    &.navbar-expand-sm.navbar-dark.bg-green {
+position: fixed;
+     z-index: 10000000000000000000000;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+ top: 78px;
+    background-color: #8EE39D;
+    .container {
+      margin-left: 300px !important;
+  }
+    .navbar-brand{
+        img {
+      height: 3rem;
+    }
+
+    } 
+    div#collapsibleNavId {
+        margin-left: 412px;
+    }
+
+}
+.nav-item {
+  padding: 0.5rem;
+
+
+  .nav-link {
+  color: #5b5555 !important;
+&.active,
+&:hover {
+  color: white !important;
+}
+}
+}
+
+}
+
+
+
+
