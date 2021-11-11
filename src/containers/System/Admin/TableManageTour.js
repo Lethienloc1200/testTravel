@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
 import { emitter } from "../../../utils/emitter";
-
-// import MarkdownIt from "markdown-it";
-// import MdEditor from "react-markdown-editor-lite";
-
-
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
 // import style manually
 import "react-markdown-editor-lite/lib/index.css";
 
@@ -14,12 +11,12 @@ import "react-markdown-editor-lite/lib/index.css";
 // MdEditor.use(YOUR_PLUGINS_HERE);
 
 // Initialize a markdown parser
-// const mdParser = new MarkdownIt(/* Markdown-it options */);
+const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 // Finish!
-// function handleEditorChange({ html, text }) {
-//   console.log("handleEditorChange", html, text);
-// }
+function handleEditorChange({ html, text }) {
+  console.log("handleEditorChange", html, text);
+}
 
 class TableManageTour extends Component {
   constructor(props) {
@@ -41,13 +38,13 @@ class TableManageTour extends Component {
   }
 
   handleDeleteTour = (tour) => {
-    // this.props.deleteATourRedux(tour.id);
+    this.props.deleteATourRedux(tour.id);
   };
   handleEditTour = (tour) => {
-    // this.props.handleEditTourFromParentKey(tour);
+    this.props.handleEditTourFromParentKey(tour);
   };
   render() {
-    // console.log("render chek all tours", this.props.listTours);
+    console.log("render chek all tourskkk", this.props.listTours);
 
     let arrTours = this.state.toursRedux;
     return (
@@ -93,11 +90,11 @@ class TableManageTour extends Component {
           </tbody>
         </table>
         <br />
-        {/* <MdEditor
+        <MdEditor
           style={{ height: "500px" }}
           renderHTML={(text) => mdParser.render(text)}
           onChange={handleEditorChange}
-        /> */}
+        />
       </>
     );
   }

@@ -25,7 +25,7 @@ export const createNewTour = (data) => {
         if (res && res.errCode === 0) {
           toast.success("Create a new tour succeed !");
           dispatch(saveTourSuccess());
-          // dispatch(fetchAllTourStart());
+          dispatch(fetchAllTourStart());
         } else {
           dispatch(saveTourFailed());
           toast.error("Create a new tour err !");

@@ -7,10 +7,10 @@ export const adminMenu = [
         //   name: "menu.admin.crud",
         //   link: "/system/user-manage",
         // },
-        {
-          name: "menu.admin.crud-redux",
-          link: "/system/user-redux",
-        },
+        // {
+        //   name: "menu.admin.crud-redux",
+        //   link: "/system/user-redux",
+        // },
         {
           name: "menu.admin.crud-tour-redux",
           link: "/system/tour-redux",

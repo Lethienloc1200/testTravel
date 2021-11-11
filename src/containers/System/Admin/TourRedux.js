@@ -92,7 +92,7 @@ class TourRedux extends Component {
     console.log("le thiien loc", this.state);
 
     // let { action } = this.state;
-    // //fire redux event create
+    //fire redux event create
     // if (action === CRUD_ACTIONS.CREATE) {
       this.props.createNewTour({
         place: this.state.place,
@@ -107,16 +107,16 @@ class TourRedux extends Component {
 
     // fire redux event edit
     // if (action === CRUD_ACTIONS.EDIT) {
-    //   this.props.editATourRedux({
-    //     id: this.state.tourEditId,
-    //     place: this.state.place,
-    //     description: this.state.description,
-    //     image: this.state.image,
-    //     way: this.state.way,
-    //     vehicle: this.state.vehicle,
-    //     hotel: this.state.hotel,
-    //     money: this.state.money,
-    //   });
+      // this.props.editATourRedux({
+      //   id: this.state.tourEditId,
+      //   place: this.state.place,
+      //   description: this.state.description,
+      //   image: this.state.image,
+      //   way: this.state.way,
+      //   vehicle: this.state.vehicle,
+      //   hotel: this.state.hotel,
+      //   money: this.state.money,
+      // });
     // }
   };
 
@@ -159,18 +159,6 @@ class TourRedux extends Component {
                     className="form-control"
                     value={place}
                     onChange={(event) => this.onChangeInput(event, "place")}
-                  />
-                </div>
-                <div className="form-group col-md-6 mx-2">
-                  description{" "}
-                  <input
-                    type="description"
-                    required
-                    className="form-control"
-                    value={description}
-                    onChange={(event) =>
-                      this.onChangeInput(event, "description")
-                    }
                   />
                 </div>
               </div>
@@ -220,7 +208,7 @@ class TourRedux extends Component {
                 </div>
               </div>
               <div className="form-row">
-                <div className="form-group  col-6 col-md-3 mx-4">
+                <div className="form-group  col-6 col-md-3 ">
                   <div className="box-upload-image">
                     <input
                       id="image-abc"
@@ -240,6 +228,19 @@ class TourRedux extends Component {
                       onClick={() => this.openPreviewImage()}
                     ></div>
                   </div>
+                </div>
+                <div className="form-group col-md-9 mx-2">
+                  description{" "}
+                  <textarea
+                    style={{ height: "200px", width: "100%" }}
+                    type="description"
+                    required
+                    className="form-control"
+                    value={description}
+                    onChange={(event) =>
+                      this.onChangeInput(event, "description")
+                    }
+                  />
                 </div>
               </div>
 
