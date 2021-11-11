@@ -2,7 +2,8 @@ import actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isLoggedIn: false,
-    adminInfo: null
+    adminInfo: null,
+    tours:[]
 }
 
 const appReducer = (state = initialState, action) => {
@@ -25,6 +26,18 @@ const appReducer = (state = initialState, action) => {
                 isLoggedIn: false,
                 adminInfo: null
             }
+
+            // ============fech all tour=======
+    case actionTypes.FETCH_ALL_TOUR_SUCCESS:
+        state.tours = action.tours;
+        return {
+          ...state,
+        };
+      case actionTypes.FETCH_ALL_TOUR_FAIDED:
+        state.tours = [];
+        return {
+          ...state,
+        };
         default:
             return state;
     }

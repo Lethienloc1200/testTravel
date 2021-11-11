@@ -26,5 +26,13 @@ const editUserService =(inputData)=>{
    
     return axios.put('/api/edit-user',inputData);
 }
+const createNewTourService = (data) => {
+    console.log("check data tour from service:", data);
+    return axios.post("/api/create-new-tour", data);
+  };
+  const getAllTours = (inputId) => {
+    return axios.get(`/api/get-all-tours?id=${inputId}`);
+  };
+  
 
-export {  handleLoginApi, getAllUsers,createNewUserService, deleteUserService ,editUserService}
+export {  handleLoginApi, getAllUsers,createNewUserService, deleteUserService ,editUserService,createNewTourService,getAllTours }
