@@ -6,10 +6,17 @@ import { LANGUAGES } from "../../utils";
 import { changeLanguageApp } from "../../store/actions";
 import "./NavbarHeader.scss";
 import NavbarHeader from "./NavbarHeader";
+import { withRouter } from "react-router";
+
 class HomeHeader extends Component {
   handleChangeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
     //fire redux event :actions
+  };
+  returnToHome = () => {
+    if (this.props.history) {
+      this.props.history.push("/home");
+    }
   };
   render() {
     let language = this.props.language;
@@ -18,18 +25,17 @@ class HomeHeader extends Component {
         <div className="home-header-container ">
           <div className="home-header-content">
             <div className="left-content">
-              {/* <i className="fas fa-bars"></i>
-              <img
-                className="header-logo"
-                src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg"
-              /> */}
               <div className="box-logo">
-                <div className="left">
+                <div className="left" onClick={() => this.returnToHome()}>
                   <i class="fas fa-circle"></i>
                 </div>
                 <div className="right">
-                  <h2><FormattedMessage id="home-header.ministry"/></h2>
-                  <p><FormattedMessage id="home-header.departmentOfTourism"/></p>
+                  <h2>
+                    <FormattedMessage id="home-header.ministry" />
+                  </h2>
+                  <p>
+                    <FormattedMessage id="home-header.departmentOfTourism" />
+                  </p>
                 </div>
               </div>
             </div>
@@ -44,11 +50,19 @@ class HomeHeader extends Component {
                 </div>
               </div>
 
-            
               <div className="child-content">
                 <div className="text-header ">
-                  <button className="btn-register mx-2"><FormattedMessage id="home-header.login"/></button>
-                  <button className="btn-register sign"><FormattedMessage id="home-header.register"/></button>
+                  <a href="http://localhost:3000/login">
+                    <button className="btn-register mx-2">
+                      <FormattedMessage id="home-header.login" />
+                    </button>
+                  </a>
+
+                  <a href="http://localhost:3000/register">
+                    <button className="btn-register sign">
+                      <FormattedMessage id="home-header.register" />
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -85,10 +99,10 @@ class HomeHeader extends Component {
         </div>
 
         <NavbarHeader />
-
-        <div className="home-header-banner">
-          <div className="background-gradient">
-            {/* <h1 className="text1">
+        {this.props.isShowBanner === true && (
+          <div className="home-header-banner">
+            <div className="background-gradient">
+              {/* <h1 className="text1">
               <FormattedMessage id="banner-header.medical-background" />
             </h1>
             <h1 className="text2">
@@ -98,119 +112,118 @@ class HomeHeader extends Component {
               <i className=" fas fa-search"></i>
               <input className="input-search" placeholder="Search..."></input>
             </div> */}
-            <div className="backg-down">
-
-                    
-            <div className="option1">
-                <div className="child-option">
-                  <div className="icon">
-                  <i class="fas fa-umbrella-beach"></i>
-                    <p>Vui chơi</p>
+              <div className="backg-down">
+                <div className="option1">
+                  <div className="child-option">
+                    <div className="icon">
+                      <i class="fas fa-umbrella-beach"></i>
+                      <p>Vui chơi</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.xuyenViet" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.SpecialistExamination" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-search"></i>
+                      <p>Tìm tour</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.trongnuoc" />
+                    </div>
                   </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-search"></i>
-                    <p>Tìm tour</p>
+                  <div className="child-option">
+                    <div className="icon">
+                      <i class="fas fa-plane-departure"></i>
+                      <p>Vé máy bay</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.veMayBay" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.RemoteExamination" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i class="fas fa-hotel"></i>
+                      <p>Khách sạn</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.hotel" />
+                    </div>
                   </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                  <i class="fas fa-plane-departure"></i>
-                    <p>Vé máy bay</p>
+                  <div className="child-option">
+                    <div className="icon">
+                      <i class="fas fa-hotel"></i>
+                      <p>Vui chơi</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.car" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.GeneralExamination" />
-                  </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                  <i class="fas fa-hotel"></i>
-                    <p>Khách sạn</p>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.TestMedicine" />
-                  </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                  <i class="fas fa-hotel"></i>
-                    <p>Vui chơi</p>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.MentalHealth" />
-                  </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-briefcase-medical"></i>
-                    <p>Tìm tour</p>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.ExaminationDentistry" />
-                  </div>
-                </div>
-              </div>
-              {/* ===========opption 2======== */}
-              <div className="option">
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-hospital"></i>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.SpecialistExamination" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-briefcase-medical"></i>
+                      <p>Tìm tour</p>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="banner-header.service" />
+                    </div>
                   </div>
                 </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-mobile-alt"></i>
+                {/* ===========opption 2======== */}
+                <div className="option">
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.xuyenViet" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.RemoteExamination" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.trongnuoc" />
+                    </div>
                   </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-procedures"></i>
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.service" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.GeneralExamination" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.veMayBay" />
+                    </div>
                   </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-flask"></i>
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.booking" />
+                    </div>
                   </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.TestMedicine" />
-                  </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-user-md"></i>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.MentalHealth" />
-                  </div>
-                </div>
-                <div className="child-option">
-                  <div className="icon">
-                    <i className="fas fa-briefcase-medical"></i>
-                  </div>
-                  <div className="text-box-down">
-                    <FormattedMessage id="banner-header.ExaminationDentistry" />
+                  <div className="child-option">
+                    <div className="icon">
+                      <i className="fas fa-hospital"></i>
+                    </div>
+                    <div className="text-box-down">
+                      <FormattedMessage id="option2.hotel" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </>
     );
   }
@@ -229,4 +242,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+);

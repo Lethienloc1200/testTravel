@@ -1,23 +1,53 @@
 @import "../../styles/common.scss";
 
 .header-container {
-    z-index: 99;
-    display: flex;
-    justify-content: space-between;
-    background-color: $colormain;
-    color: $common-text-color;
-    height: 40px;
-    position: relative;
-    .btn-logout {
-        color: $common-text-color;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 10px;
-        &:hover {
-            background-color: darken($colormain, 5);
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  background-color: $colormain;
+  color: $common-text-color;
+  height: 40px;
+  position: relative;
+
+  .language-box {
+    span {
+      color: red;
+
+      cursor: pointer;
+      margin: 10px;
+
+      &:hover {
+        color: white;
+      }
+      &.wellcom-admin {
+        color: white;
+        font-size: 15px;
+      }
+      &.language-vi {
+        &.active {
+          font-weight: bold;
+          border-bottom: 2px solid white;
         }
-        i {
-            font-size: $base-size + 1px;
+      }
+      &.language-en {
+        &.active {
+          font-weight: bold;
+          border-bottom: 3px solid white;
         }
+      }
     }
+
+    .btn-logout {
+      color: $common-text-color;
+      line-height: 40px;
+      height: 40px;
+      padding: 0 10px;
+      &:hover {
+        background-color: darken($colormain, 5);
+      }
+      i {
+        font-size: $base-size + 1px;
+      }
+    }
+  }
 }

@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 class Dropdowns extends Component {
+  searchTour = () => {
+    alert("Chưa làm được mô, tự tìm đi, really sory..😋😋");
+  };
   render() {
     return (
       <>
@@ -43,7 +46,7 @@ class Dropdowns extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Action
+                Điểm đến
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">
@@ -71,7 +74,7 @@ class Dropdowns extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Action
+                Ngày đi
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">
@@ -98,7 +101,7 @@ class Dropdowns extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Action
+                Ngày về
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">
@@ -125,7 +128,7 @@ class Dropdowns extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Action
+                Giá tiền
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">
@@ -145,7 +148,12 @@ class Dropdowns extends Component {
             </div>
             {/* ===tìm kiếm */}
             <div class="btn-group">
-              <button className="btn-register sign">Tìm kiếm</button>
+              <button
+                className="btn-register sign"
+                onClick={() => this.searchTour()}
+              >
+                Tìm kiếm
+              </button>
             </div>
           </div>
         </div>

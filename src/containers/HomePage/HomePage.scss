@@ -18,7 +18,7 @@
     margin: 0 10%;
     .btn-group {
       width: 220px;
-      margin-right: 20px ;
+      margin-right: 20px;
       .dropdown-toggle {
         padding: 9px 0;
         border: 1px solid red;
@@ -26,7 +26,7 @@
         width: 100%;
         background-color: transparent;
         color: #111;
-       
+
         &::after {
           margin-left: 30px;
         }
@@ -40,8 +40,6 @@
         border: none;
         border-radius: 5px;
         background: #1dddd1;
-
-
       }
     }
     .section-header {
@@ -52,9 +50,8 @@
         font-size: 21px;
         font-weight: 600;
         padding: 20px 0;
-        color: #111;;
+        color: #111;
         text-shadow: 3px 2px 3px #198754;
-      
       }
       button.text-right {
         padding: 0 18px;
@@ -70,17 +67,18 @@
         }
       }
     }
- 
 
     .customize-img {
       height: 157px;
       padding: 0 6px;
       outline: none;
+      --animate-duration: 4s; // wow.js
+
       &.start {
         padding-right: 6px;
         padding-left: 0px;
       }
-      &.star{
+      &.star {
         position: relative;
       }
 
@@ -104,21 +102,19 @@
         background-position: center;
         background-size: cover;
         cursor: pointer;
-        
 
         &.img-tourhots {
           background-image: url("../../assets/images/Tourhots/245061064_160841666249353_3675318429958648076_n.jpg");
-        } 
+        }
         &.img-tourPopular {
-          background-image: url("../../assets/images/Tourhots/244561299_833354384001417_8508050033956830057_n.jpg");
-        } 
+          // background-image: url("../../assets/images/Tourhots/244561299_833354384001417_8508050033956830057_n.jpg");
+        }
         &.img-about-media {
           width: 100%;
         }
       }
-      .text-discript{
+      .text-discript {
         background: #111;
- 
       }
       .date-text {
         position: relative;
@@ -145,35 +141,31 @@
         &:hover {
           color: #fff;
         }
-        
       }
       p.text-nho {
         color: rgba(255, 255, 255, 0.687);
         margin: 0;
         padding-left: 10px;
         font-size: 15px;
-       
-
       }
     }
-    .star{
+    .star {
       position: absolute;
       right: 0;
       top: 0;
       background-color: #fbfbfb96;
-    padding:0 20px;
+      padding: 0 20px;
       margin: 0;
-      i{
+      i {
         color: orange;
       }
-      p{
+      p {
         margin: 0;
         font-size: 10px;
         color: #555;
       }
     }
   }
-  
 }
 
 .slick-prev,
