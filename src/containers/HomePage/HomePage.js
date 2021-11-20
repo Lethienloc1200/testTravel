@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Dropdowns from "./Section/Dropdowns";
 import AboutMedia from "./Section/AboutMedia";
+import TourAll from "./Section/TourAll";
 class HomePage extends Component {
   render() {
     let settings = {
@@ -23,8 +24,9 @@ class HomePage extends Component {
       <div>
         <HomeHeader isShowBanner={true} />
         <Dropdowns />
-        <Tourhots settings={settings} />
+        <TourAll />
         <TourPopular settings={settings} />
+        <Tourhots settings={settings} />
         <AboutMedia />
         <Footer />
       </div>

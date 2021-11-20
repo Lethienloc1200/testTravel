@@ -219,7 +219,7 @@ class UserRedux extends Component {
     // console.log(this.state);
     return (
       <div className="user-redux-container">
-        <div className="title">Them oi nguoi dung</div>
+        <div className="title mb-5">Quản lý người dùng</div>
         <div className="">
           {" "}
           {isLoadingGender === true ? "Loadding gender" : ""}
@@ -229,7 +229,9 @@ class UserRedux extends Component {
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <FormattedMessage id="admin-form.email" />
+                  <p className="title-tour-form">
+                    <FormattedMessage id="admin-form.email" />
+                  </p>
 
                   <input
                     required
@@ -243,7 +245,11 @@ class UserRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6 mx-2">
-                  <FormattedMessage id="admin-form.password" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.password" />
+                  </p>
+
                   <input
                     type="password"
                     required
@@ -258,7 +264,11 @@ class UserRedux extends Component {
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <FormattedMessage id="admin-form.first-name" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.first-name" />
+                  </p>
+
                   <input
                     required
                     type="text"
@@ -268,7 +278,11 @@ class UserRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6 mx-2">
-                  <FormattedMessage id="admin-form.last-name" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.last-name" />
+                  </p>
+
                   <input
                     required
                     type="text"
@@ -281,7 +295,11 @@ class UserRedux extends Component {
 
               <div className="form-row">
                 <div className="form-group col-md-3">
-                  <FormattedMessage id="admin-form.sdt" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.sdt" />
+                  </p>
+
                   <input
                     required
                     type="text"
@@ -293,7 +311,11 @@ class UserRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-9 mx-2">
-                  <FormattedMessage id="admin-form.address" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.address" />
+                  </p>
+
                   <input
                     type="text"
                     className="form-control"
@@ -305,7 +327,10 @@ class UserRedux extends Component {
               </div>
               <div className="form-row">
                 <div className="form-group col-3 col-md-2">
-                  <FormattedMessage id="admin-form.gender" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.gender" />
+                  </p>
 
                   <select
                     className="form-control"
@@ -326,7 +351,11 @@ class UserRedux extends Component {
                   </select>
                 </div>
                 <div className="form-group  col-3 col-md-3 mx-3">
-                  <FormattedMessage id="admin-form.title" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.title" />
+                  </p>
+
                   <select
                     className="form-control"
                     value={position}
@@ -346,7 +375,11 @@ class UserRedux extends Component {
                   </select>
                 </div>
                 <div className="form-group  col-6 col-md-3 mx-3">
-                  <FormattedMessage id="admin-form.Role" />
+                  <p className="title-tour-form">
+                    {" "}
+                    <FormattedMessage id="admin-form.Role" />
+                  </p>
+
                   <select
                     value={role}
                     className="form-control"

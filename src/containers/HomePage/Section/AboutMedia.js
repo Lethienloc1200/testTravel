@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
-
+import WOW from "wowjs";
 class AboutMedia extends Component {
+  componentDidMount() {
+    new WOW.WOW().init();
+  }
   render() {
     return (
       <div className="section-share  about-media">
         <div className="section-container">
           <div className="section-header">
-            <div className="text-header-section">
+            <div className="text-header-section wow slideInLeft">
               Một số video đẹp nhất về du lịch Bà Nà Hill Đà Nẵng
             </div>
           </div>
 
-          <div className="customize-img about-media ">
+          <div
+            className="customize-img about-media  wow slideInLeft "
+            data-wow-offset="100"
+            data-wow-duration="1.5s"
+          >
             <div className="left">
               <iframe
                 width="100%"

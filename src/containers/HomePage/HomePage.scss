@@ -86,6 +86,7 @@
         display: flex !important;
         height: 350px;
         width: 100%;
+        background-color: transparent;
       }
       .left {
         border-radius: 10px;
@@ -198,10 +199,3 @@
 }
 
 // =============footer==========
-
-.footer {
-  background-color: lightblue;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-}

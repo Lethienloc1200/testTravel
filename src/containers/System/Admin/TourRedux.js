@@ -8,6 +8,18 @@ import "./TourRedux.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import TableManageTour from "./TableManageTour";
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
+// import style manually
+import "react-markdown-editor-lite/lib/index.css";
+
+// Register plugins if required
+// MdEditor.use(YOUR_PLUGINS_HERE);
+
+// Initialize a markdown parser
+const mdParser = new MarkdownIt(/* Markdown-it options */);
+
+// Finish!
 
 class TourRedux extends Component {
   constructor(props) {
@@ -25,8 +37,16 @@ class TourRedux extends Component {
       vehicle: "",
       hotel: "",
       money: "",
+      contentMarkdown: "",
+      contentHTML: "",
     };
   }
+  handleEditorChange = ({ html, text }) => {
+    this.setState({
+      contentMarkdown: text,
+      contentHTML: html,
+    });
+  };
 
   async componentDidMount() {}
   componentDidUpdate(prevProps, PrevState, snapshot) {
@@ -39,6 +59,8 @@ class TourRedux extends Component {
         vehicle: "",
         hotel: "",
         money: "",
+        contentMarkdown: "",
+        contentHTML: "",
 
         action: CRUD_ACTIONS.CREATE,
         previewImgUrl: "",
@@ -102,6 +124,9 @@ class TourRedux extends Component {
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
         money: this.state.money,
+
+        contentMarkdown: this.state.contentMarkdown,
+        contentHTML: this.state.contentHTML,
       });
     }
 
@@ -116,6 +141,8 @@ class TourRedux extends Component {
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
         money: this.state.money,
+        contentMarkdown: this.state.contentMarkdown,
+        contentHTML: this.state.contentHTML,
       });
     }
   };
@@ -134,6 +161,8 @@ class TourRedux extends Component {
       hotel: tour.hotel,
       money: tour.money,
       image: "",
+      contentMarkdown: tour.contentMarkdown,
+      contentHTML: tour.contentHTML,
       previewImgUrl: imageBase64,
       action: CRUD_ACTIONS.EDIT,
       tourEditId: tour.id,
@@ -146,13 +175,13 @@ class TourRedux extends Component {
     // console.log(this.state);
     return (
       <div className="user-redux-container">
-        <div className="title">TOUR REDUX </div>
+        <div className="title">Quản lý tour du lịch </div>
         <div className="user-rexdux-body">
           <div className="container mb-5">
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  Place
+                  <p className="title-tour-form">Địa điểm du lịch</p>
                   <input
                     required
                     type="place"
@@ -162,7 +191,7 @@ class TourRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6">
-                  Chưa nghỉ ra
+                  <p className="title-tour-form">Chưa nghĩ ra</p>
                   <input
                     required
                     type="chuanghira"
@@ -175,7 +204,7 @@ class TourRedux extends Component {
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  vehicle
+                  <p className="title-tour-form">Phương tiện</p>
                   <input
                     required
                     type="text"
@@ -185,7 +214,7 @@ class TourRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6 mx-2">
-                  Way
+                  <p className="title-tour-form">Lộ trình</p>
                   <input
                     required
                     type="text"
@@ -198,7 +227,7 @@ class TourRedux extends Component {
 
               <div className="form-row">
                 <div className="form-group col-md-3">
-                  Hotel
+                  <p className="title-tour-form">Khách sạn</p>
                   <input
                     required
                     type="text"
@@ -208,7 +237,7 @@ class TourRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-9 mx-2">
-                  Money
+                  <p className="title-tour-form">Tiền</p>
                   <input
                     type="text"
                     className="form-control"
@@ -241,13 +270,9 @@ class TourRedux extends Component {
                   </div>
                 </div>
                 <div className="form-group col-md-9 mx-2">
-                  Description{" "}
-                  <p>
-                    " Sử dụng &lt;img src="http://" /&gt; để chèn vào ảnh và
-                    &lt;br/&gt; để xuống dòng "
-                  </p>
+                  <p className="title-tour-form">Mô tả ngắn</p>
                   <textarea
-                    style={{ height: "200px", width: "100%" }}
+                    style={{ height: "180px", width: "100%" }}
                     type="description"
                     required
                     className="form-control"
@@ -258,6 +283,12 @@ class TourRedux extends Component {
                   />
                 </div>
               </div>
+              <MdEditor
+                style={{ height: "500px" }}
+                renderHTML={(text) => mdParser.render(text)}
+                onChange={this.handleEditorChange}
+                value={this.state.contentMarkdown}
+              />
 
               <button
                 type="button"

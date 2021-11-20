@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from "../../../utils";
 import { withRouter } from "react-router";
-
+import WOW from "wowjs";
 class TourPopular extends Component {
   constructor(props) {
     super(props);
@@ -21,9 +21,10 @@ class TourPopular extends Component {
     }
   }
   componentDidMount() {
+    new WOW.WOW().init();
     this.props.loadTopTours();
   }
-  handleViewDetailDotor = (tour) => {
+  handleViewDetailTour = (tour) => {
     console.log("view detail tour", tour.id);
     this.props.history.push(`/detail-tour/${tour.id}`);
   };
@@ -32,7 +33,11 @@ class TourPopular extends Component {
     let { arrTours } = this.state;
     console.log("check tour top ", arrTours);
     return (
-      <div className="section-share tourhots">
+      <div
+        className="section-share tourhots wow slideInRight"
+        data-wow-offset="50"
+        data-wow-duration="1.5s"
+      >
         <div className="section-container">
           <div className="section-header">
             <div className="text-header-section">Tour Phổ biến</div>
@@ -51,11 +56,11 @@ class TourPopular extends Component {
                 return (
                   <div
                     key={index}
-                    onClick={() => this.handleViewDetailDotor(item)}
-                    className="customize-img start star     animate__animated animate__rubberBand  animate__repeat-2 "
+                    onClick={() => this.handleViewDetailTour(item)}
+                    className="customize-img start star "
                   >
                     <div
-                      className="image-section img-tourPopular"
+                      className="image-section img-tourPopular "
                       style={{ backgroundImage: `url(${imageBase64})` }}
                     />
                     <div className="star">
@@ -66,10 +71,10 @@ class TourPopular extends Component {
                       <p>5 star Review</p>
                     </div>
                     <div className="text-discript">
-                      <p className="text"> 🎇{item.place}</p>
+                      <p className="text">🎇{item.place}</p>
                       <p className="text-nho">{item.way}</p>
-                      <p className="text-nho">{item.hotel}</p>
-                      <p className="text-nho">{item.money}</p>
+                      <p className="text-nho">Khách sạn{item.hotel}</p>
+                      <p className="text-nho">Giá:{item.money}</p>
                     </div>
                   </div>
                 );

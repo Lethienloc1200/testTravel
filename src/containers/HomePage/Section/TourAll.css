@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+/* font-family: 'Road Rage', cursive; */
+.one-tour {
+  width: 100%;
+  padding: 0px 180px;
+  background-color: rgba(144, 238, 144, 0.442);
+}
+.title-tourAll {
+  font-size: 40px;
+  padding: 20px 0;
+  font-family: "Road Rage", cursive;
+}
+.customize-img {
+  cursor: pointer;
+  position: relative;
+  width: 23%;
+  height: 400px;
+  display: inline-block;
+  margin: 10px;
+
+  background-color: #222;
+}
+.image-section.img-tourall {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  background-color: black;
+  background-image: url("../../../assets/images/Tourhots/244561299_833354384001417_8508050033956830057_n.jpg");
+}
+p.text-nho {
+  color: rgba(255, 255, 255, 0.687);
+  margin: 0;
+  padding-left: 10px;
+  font-size: 15px;
+}
+p.text {
+  padding-top: 3px;
+  color: rgba(255, 255, 255, 0.687);
+  color: rgba(255, 0, 0, 0.884);
+  margin: 0;
+  padding-left: 10px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+
+.starr {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fbfbfb96;
+  padding: 0 20px;
+  margin: 0;
+}

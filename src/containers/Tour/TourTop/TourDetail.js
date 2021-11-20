@@ -9,15 +9,22 @@ import HomeHeader from "../../../containers/HomePage/HomeHeader";
 import Footer from "../../../containers/HomePage/Footer";
 import "./TourDetail.scss";
 import { getDetailInforTour } from "../../../services/userService";
+import Comment from "../SocialPlugin/Comment";
+import LikeShare from "../SocialPlugin/LikeShare";
+import WOW from "wowjs";
+import ModalBookingTour from "../ModalBookingTour/ModalBookingTour";
 class TourDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       detailTour: {},
+      isOpenModalUser: false,
     };
   }
   componentDidUpdate(prevProps, prevState, snapshot) {}
   async componentDidMount() {
+    new WOW.WOW().init();
+
     if (
       this.props.match &&
       this.props.match.params &&
@@ -36,15 +43,36 @@ class TourDetail extends Component {
   commitComment = () => {
     alert("Chúc mừng bạn đánh giá chưa đc gửi 😎😎😎");
   };
-
+  handleAddNewUser = () => {
+    this.setState({
+      isOpenModalUser: true,
+    });
+  };
+  toggleUserModal = () => {
+    this.setState({
+      isOpenModalUser: !this.state.isOpenModalUser,
+    });
+  };
   render() {
     let { language } = this.props;
     let { detailTour } = this.state;
     console.log("check tour top detail ", detailTour);
 
+    let currentURL =
+      +process.env.REACT_APP_IS_LOCALHOST === 1
+        ? "https://nextflix-clone-ffe5e.web.app/browse"
+        : window.location.href;
+    console.log("cuuuuuuurent ", currentURL);
+    // ? "https://eric-restaurant-bot-tv.herokuapp.com/"/
+
     return (
       <>
         <HomeHeader isShowBanner={false} />
+        <ModalBookingTour
+          isOpen={this.state.isOpenModalUser}
+          toggleFromParent={this.toggleUserModal}
+          createNewUser={this.createNewUser}
+        />
         <div className="container-detail">
           <div className="content-detail">
             <h3 className=" header-detail       animate__animated animate__bounce animate__delay-2s">
@@ -65,17 +93,32 @@ class TourDetail extends Component {
                 <h3 className="place">
                   Tour du lịch: 🎇 <b>{detailTour.place}</b>
                 </h3>
+
+                <span>
+                  <button
+                    className="btn btn-primary book-tour wow animate__swing"
+                    data-wow-iteration="20"
+                    data-wow-duration="2s"
+                    data-wow-delay="2s"
+                    onClick={() => this.handleAddNewUser()}
+                  >
+                    Đặt tour
+                  </button>
+                </span>
                 <p className="place">
-                  Khách sạn:🚞 <b>{detailTour.hotel}</b>
+                  Khách sạn: <b>{detailTour.hotel}</b>
                 </p>
                 <p className="place">
-                  Phương tiện di chuyển: 🚗 <b>{detailTour.vehicle}</b>
+                  Phương tiện di chuyển: <b>{detailTour.vehicle}</b>
                 </p>
                 <p className="place">
-                  Lộ trình: 👟 <b>{detailTour.way}</b>
+                  Lộ trình: <b>{detailTour.way}</b>
                 </p>
                 <p className="place">
                   Giá: 🌿 <b>{detailTour.money}</b>
+                </p>
+                <p>
+                  <p>{detailTour.description}</p>
                 </p>
               </div>
             </div>
@@ -83,16 +126,11 @@ class TourDetail extends Component {
             <hr></hr>
             <div className="bottom">
               <div className="left">
-                <h3>Mô tả chi tiết tour</h3>
-                {detailTour.description}
-                <h3> ở dưới là minh fix tĩnh 😂😂😂</h3>
-                <hr></hr>
-                Nôi dung miêu tả tour du lịch <br />{" "}
-                <img src="https://media-cdn.laodong.vn/Storage/NewsPortal/2017/8/28/551691/Du-Lich_2.jpg" />{" "}
-                <br />
-                <br />
-                <img src="https://lh3.googleusercontent.com/proxy/RYRqbF-1XzwUqTdKPeOKsbyrdmU5zpnXvdAEmK13vPYgu8a2hUZhvhyUW1wYPlYAsduu_q2v7_VOQDrpxt1cXF785Ub2x5LkvWC22BP5n5AmHMJQbSE5uDeG2jqIGLFozmecmg99Lt7kyP4tw0xa90SJhiWqweAq_tmN8u12WrQ" />{" "}
-                <br />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: detailTour.contentHTML,
+                  }}
+                ></div>
               </div>
               <hr></hr>
               <div className="right">
@@ -109,6 +147,15 @@ class TourDetail extends Component {
                     Gửi
                   </button>
                 </div>
+                <hr></hr>
+                <div>
+                  {" "}
+                  <LikeShare dataHref={currentURL}></LikeShare>
+                </div>
+                <hr></hr>
+                <br></br>
+
+                <Comment dataHref={currentURL}></Comment>
               </div>
             </div>
           </div>

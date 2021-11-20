@@ -7,8 +7,12 @@ import { changeLanguageApp } from "../../store/actions";
 import "./NavbarHeader.scss";
 import NavbarHeader from "./NavbarHeader";
 import { withRouter } from "react-router";
+import WOW from "wowjs";
 
 class HomeHeader extends Component {
+  componentDidMount() {
+    new WOW.WOW().init();
+  }
   handleChangeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
     //fire redux event :actions
@@ -114,7 +118,12 @@ class HomeHeader extends Component {
             </div> */}
               <div className="backg-down">
                 <div className="option1">
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i class="fas fa-umbrella-beach"></i>
                       <p>Vui chơi</p>
@@ -123,7 +132,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="banner-header.xuyenViet" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0.25s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i className="fas fa-search"></i>
                       <p>Tìm tour</p>
@@ -132,7 +146,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="banner-header.trongnuoc" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0.5s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i class="fas fa-plane-departure"></i>
                       <p>Vé máy bay</p>
@@ -141,7 +160,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="banner-header.veMayBay" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0.5s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i class="fas fa-hotel"></i>
                       <p>Khách sạn</p>
@@ -150,7 +174,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="banner-header.hotel" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0.25s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i class="fas fa-hotel"></i>
                       <p>Vui chơi</p>
@@ -159,7 +188,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="banner-header.car" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow slideInUp"
+                    data-wow-offset="100"
+                    data-wow-delay="0s"
+                    // data-wow-duration="1s"
+                  >
                     <div className="icon">
                       <i className="fas fa-briefcase-medical"></i>
                       <p>Tìm tour</p>
@@ -171,7 +205,12 @@ class HomeHeader extends Component {
                 </div>
                 {/* ===========opption 2======== */}
                 <div className="option">
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="1.5s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>
@@ -179,7 +218,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="option2.xuyenViet" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="1.75s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>
@@ -187,7 +231,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="option2.trongnuoc" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="2s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>
@@ -195,7 +244,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="option2.service" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="2.25s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>
@@ -203,7 +257,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="option2.veMayBay" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="2.5s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>
@@ -211,7 +270,12 @@ class HomeHeader extends Component {
                       <FormattedMessage id="option2.booking" />
                     </div>
                   </div>
-                  <div className="child-option">
+                  <div
+                    className="child-option wow animate__bounceIn"
+                    data-wow-offset="100"
+                    data-wow-delay="2.75s"
+                    data-wow-duration="2s"
+                  >
                     <div className="icon">
                       <i className="fas fa-hospital"></i>
                     </div>

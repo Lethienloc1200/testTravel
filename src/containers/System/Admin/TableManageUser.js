@@ -56,7 +56,7 @@ class TableManageUser extends Component {
               <th>Last Name</th>
               <th>Email</th>
               <th>Address</th>
-              <th>Action</th>
+              <th style={{ width: "140px" }}>Action</th>
             </tr>
           </thead>
           <tbody>

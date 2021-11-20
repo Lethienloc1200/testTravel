@@ -2,18 +2,26 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
+import WOW from "wowjs";
 
 class Tourhots extends Component {
+  componentDidMount() {
+    new WOW.WOW().init();
+  }
   render() {
     return (
-      <div className="section-share animate__animated animate__bounceInLeft">
+      <div
+        className="section-share  wow slideInLeft"
+        data-wow-offset="100"
+        data-wow-duration="1.5s"
+      >
         <div className="section-container">
           <div className="section-header">
             <div className="text-header-section">Tour đang hot</div>
             <button className="text-right">Xem thêm</button>
           </div>
           <Slider {...this.props.settings}>
-            <div className="customize-img start star">
+            <div className="customize-img start star ">
               <div className="image-section img-tourhots" />
               <div className="star">
                 <i class="fas fa-star"></i>
