@@ -3,8 +3,10 @@ import {
   getAllCodeService,
   createNewUserService,
   createNewTourService,
+  createNewCommentService,
   getAllUsers,
   getAllTours,
+  getAllComments,
   deleteUserService,
   deleteTourService,
   editUserService,
@@ -426,3 +428,57 @@ export const fetchTopTour = () => {
     }
   };
 };
+
+// ============comment============
+export const createNewComment = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await createNewCommentService(data);
+      console.log("comment check redux create sau", res);
+
+      if (res && res.errCode === 0) {
+        toast.success("Create a new comment succeed !");
+        dispatch(saveCommentSuccess());
+        dispatch(fetchAllCommentStart());
+      } else {
+        dispatch(saveCommentFailed());
+        toast.error("Create a new comment err !");
+      }
+    } catch (error) {
+      dispatch(saveCommentFailed());
+      toast.error("Create a new comment err !");
+    }
+  };
+};
+
+export const saveCommentSuccess = () => ({
+  type: actionTypes.CREATE_TOUR_SUCCESS,
+});
+export const saveCommentFailed = () => ({
+  type: actionTypes.CREATE_TOUR_FAIDED,
+});
+
+// =============fetchAllCommentStart=========
+export const fetchAllCommentStart = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllComments("ALL");
+      // let res1 = await getTopDoctorHomeService(3);
+      // console.log("resss1 ", res1);
+      if (res && res.errCode === 0) {
+        dispatch(fetchAllCommentSuccess(res.comments.reverse()));
+      } else {
+        dispatch(fetchAllCommentFailed());
+      }
+    } catch (error) {
+      dispatch(fetchAllCommentFailed());
+    }
+  };
+};
+export const fetchAllCommentSuccess = (data) => ({
+  type: actionTypes.FETCH_ALL_COMMENT_SUCCESS,
+  comments: data,
+});
+export const fetchAllCommentFailed = () => ({
+  type: actionTypes.FETCH_ALL_COMMENT_FAIDED,
+});

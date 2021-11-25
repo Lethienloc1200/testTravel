@@ -13,6 +13,7 @@ import Comment from "../SocialPlugin/Comment";
 import LikeShare from "../SocialPlugin/LikeShare";
 import WOW from "wowjs";
 import ModalBookingTour from "../ModalBookingTour/ModalBookingTour";
+import CommentRedux from "../../System/Admin/CommentRedux";
 class TourDetail extends Component {
   constructor(props) {
     super(props);
@@ -134,19 +135,7 @@ class TourDetail extends Component {
               </div>
               <hr></hr>
               <div className="right">
-                <div className="comment-tour">
-                  <h3>Đánh giá tour</h3>
-                  <div>💛💛💛💛🤍</div>
-                  <input type="text" placeholder="Nhập vào tên:" />
-                  <input type="text" placeholder="Thời gian bạn đi du lịch" />
-                  <textarea type="text" placeholder="Nội dung đánh giá" />
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => this.commitComment()}
-                  >
-                    Gửi
-                  </button>
-                </div>
+                <CommentRedux />
                 <hr></hr>
                 <div>
                   {" "}

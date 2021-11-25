@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+/* font-family: 'Road Rage', cursive; */
+.one-tour {
+  width: 100%;
+  padding: 0px 180px;
+  background-color: rgba(144, 238, 144, 0.442);
+  .header-tour-all {
+    display: flex;
+    justify-content: space-between;
+    .left {
+      .title-tourAll {
+        font-size: 40px;
+        padding: 20px 0;
+        font-family: "Road Rage", cursive;
+      }
+    }
+    .right {
+      .search {
+        // width: fit-content;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        margin-top: 20px;
+        margin-right: 22px;
+        padding: 7px;
+        border-radius: 5px;
+        background-color: #fff;
+        border: 1px solid blue;
+
+        i {
+          padding: 5px 5px;
+        }
+        .input-search {
+          font-size: 20px;
+          width: 415px;
+          background: transparent;
+          outline: none;
+          border: none;
+          padding: 3px 14px;
+        }
+      }
+    }
+  }
+  .customize-img {
+    cursor: pointer;
+    position: relative;
+    width: 23%;
+    height: 400px;
+    display: inline-block;
+    margin: 14px;
+
+    background-color: #222;
+    overflow: hidden;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 4px 7px 7px 5px #000000a1;
+    }
+
+    .image-section.img-tourall {
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      height: 200px;
+      background-color: black;
+      background-image: url("../../../assets/images/Tourhots/244561299_833354384001417_8508050033956830057_n.jpg");
+      transition: 0.5s;
+      // &:hover {
+      //   transform: scale(1.025);
+      // }
+    }
+    .text-discript {
+      p.text-nho {
+        color: rgba(255, 255, 255, 0.687);
+        margin: 0;
+        padding-left: 10px;
+        font-size: 15px;
+      }
+      p.text {
+        padding-top: 3px;
+        color: rgba(255, 255, 255, 0.687);
+        color: rgba(255, 0, 0, 0.884);
+        margin: 0;
+        padding-left: 10px;
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+      }
+    }
+    .starr {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-color: #fbfbfb96;
+      padding: 0 20px;
+      margin: 0;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+/* font-family: 'Road Rage', cursive; */
 .container-detail {
   background-color: rgba(241, 233, 233, 0.476);
   height: auto;
@@ -66,7 +68,7 @@
         background: rgba(221, 214, 214, 0.252);
 
         .comment-tour {
-          margin: 40px;
+          margin: 10px;
           input {
             width: 100%;
             padding: 8px;
@@ -86,6 +88,21 @@
             width: 75px;
             height: 35px;
             font-size: 18px;
+          }
+
+          .container-comment-box {
+            i {
+              color: rgb(255, 132, 0);
+              font-size: 18px;
+              // font-weight: bold;
+            }
+            .descript {
+              color: rgb(54, 53, 53);
+              font-size: 20px;
+              font-family: "Road Rage", cursive;
+              border-bottom: 1px solid #9999995f;
+              padding-bottom: 7px;
+            }
           }
         }
       }

@@ -10,6 +10,9 @@ const getAllUsers = (inputId) => {
 const getAllTours = (inputId) => {
   return axios.get(`/api/get-all-tours?id=${inputId}`);
 };
+const getAllComments = (inputId) => {
+  return axios.get(`/api/get-all-comments?id=${inputId}`);
+};
 
 const createNewUserService = (data) => {
   console.log("check data ufrom service:", data);
@@ -18,6 +21,10 @@ const createNewUserService = (data) => {
 const createNewTourService = (data) => {
   console.log("check data tour from service:", data);
   return axios.post("/api/create-new-tour", data);
+};
+const createNewCommentService = (data) => {
+  console.log("check data comment from service:", data);
+  return axios.post("/api/create-new-comment", data);
 };
 
 const deleteUserService = (userId) => {
@@ -66,8 +73,10 @@ export {
   handleLoginApi,
   getAllUsers,
   getAllTours,
+  getAllComments,
   createNewUserService,
   createNewTourService,
+  createNewCommentService,
   deleteUserService,
   deleteTourService,
   editUserService,

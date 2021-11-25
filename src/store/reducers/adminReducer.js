@@ -7,6 +7,7 @@ const initialState = {
   isLoadingGender: false,
   users: [],
   tours: [],
+  comments: [],
   topDoctors: [],
   topTours: [],
   allDoctors: [],
@@ -80,6 +81,18 @@ const adminReducer = (state = initialState, action) => {
       };
     case actionTypes.FETCH_ALL_TOUR_FAIDED:
       state.tours = [];
+      return {
+        ...state,
+      };
+
+    // ============fech all comment=======
+    case actionTypes.FETCH_ALL_COMMENT_SUCCESS:
+      state.comments = action.comments;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_ALL_COMMENT_FAIDED:
+      state.comments = [];
       return {
         ...state,
       };
