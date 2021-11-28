@@ -7,6 +7,7 @@ import { LANGUAGES } from "../../../utils";
 import { withRouter } from "react-router";
 import WOW from "wowjs";
 class TourPopular extends Component {
+  s;
   constructor(props) {
     super(props);
     this.state = {

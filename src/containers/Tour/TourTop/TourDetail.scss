@@ -91,17 +91,35 @@
           }
 
           .container-comment-box {
-            i {
-              color: rgb(255, 132, 0);
-              font-size: 18px;
-              // font-weight: bold;
+            display: flex;
+            // justify-content: space-between;
+            border-bottom: 1px solid #9999995f;
+            .leftt {
+              align-items: center;
+
+              img {
+                margin-top: 10px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              }
             }
-            .descript {
-              color: rgb(54, 53, 53);
-              font-size: 20px;
-              font-family: "Road Rage", cursive;
-              border-bottom: 1px solid #9999995f;
-              padding-bottom: 7px;
+            .rightt {
+              padding-left: 15px;
+              i {
+                color: rgb(255, 132, 0);
+                font-size: 18px;
+                // font-weight: bold;
+                padding: 0;
+                margin: 0;
+              }
+              p.descript {
+                padding: 0;
+                margin: 0;
+                color: rgb(54, 53, 53);
+                font-size: 20px;
+                font-family: "Road Rage", cursive;
+              }
             }
           }
         }

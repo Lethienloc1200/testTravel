@@ -5,6 +5,7 @@ import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../utils";
 import { changeLanguageApp } from "../../store/actions";
 import "./NavbarHeader.scss";
+import * as actions from "../../store/actions";
 import NavbarHeader from "./NavbarHeader";
 import { withRouter } from "react-router";
 import WOW from "wowjs";
@@ -23,6 +24,7 @@ class HomeHeader extends Component {
     }
   };
   render() {
+    const { processLogout, userInfo } = this.props;
     let language = this.props.language;
     return (
       <>
@@ -97,6 +99,16 @@ class HomeHeader extends Component {
               <div className="text-support">
                 <i className=" fas fa-question-circle"></i>
                 <FormattedMessage id="home-header.support" />
+              </div>
+              <span className="wellcom-admin mx-3">
+                <FormattedMessage id="home-header.wellcom" />{" "}
+                {userInfo && userInfo.firstName && userInfo.lastName
+                  ? userInfo.firstName + " " + userInfo.lastName
+                  : ""}
+              </span>
+
+              <div className="btn btn-logout mx-3" onClick={processLogout}>
+                <i className="fas fa-sign-out-alt"></i>
               </div>
             </div>
           </div>
@@ -297,12 +309,14 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
+    userInfo: state.user.userInfo,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
+    processLogout: () => dispatch(actions.processLogout()),
   };
 };
 

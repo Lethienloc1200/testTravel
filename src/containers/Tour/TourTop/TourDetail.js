@@ -8,7 +8,10 @@ import { withRouter } from "react-router";
 import HomeHeader from "../../../containers/HomePage/HomeHeader";
 import Footer from "../../../containers/HomePage/Footer";
 import "./TourDetail.scss";
-import { getDetailInforTour } from "../../../services/userService";
+import {
+  getDetailInforTour,
+  getDetailInforComment,
+} from "../../../services/userService";
 import Comment from "../SocialPlugin/Comment";
 import LikeShare from "../SocialPlugin/LikeShare";
 import WOW from "wowjs";
@@ -19,6 +22,8 @@ class TourDetail extends Component {
     super(props);
     this.state = {
       detailTour: {},
+      arrComment: [],
+
       isOpenModalUser: false,
     };
   }
@@ -33,10 +38,14 @@ class TourDetail extends Component {
     ) {
       let id = this.props.match.params.id;
       let res = await getDetailInforTour(id);
+      let res1 = await getDetailInforComment(id);
+      console.log("oooooooooooooooookkkkkkkkkkkkkkkk", res);
+      console.log("oooooooooooooooookkkkkkkkkkkkkkkk1", res1);
 
       if (res && res.errCode === 0) {
         this.setState({
           detailTour: res.data,
+          arrComment: res1.data,
         });
       }
     }
@@ -56,8 +65,9 @@ class TourDetail extends Component {
   };
   render() {
     let { language } = this.props;
-    let { detailTour } = this.state;
+    let { detailTour, arrComment } = this.state;
     console.log("check tour top detail ", detailTour);
+    console.log("check tour top detail mảng ", arrComment);
 
     let currentURL =
       +process.env.REACT_APP_IS_LOCALHOST === 1
@@ -135,7 +145,8 @@ class TourDetail extends Component {
               </div>
               <hr></hr>
               <div className="right">
-                <CommentRedux />
+                <CommentRedux detailTour={detailTour} arrComment={arrComment} />
+
                 <hr></hr>
                 <div>
                   {" "}
@@ -157,15 +168,17 @@ class TourDetail extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    userInfo: state.user.userInfo,
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
     topToursRedux: state.admin.topTours,
+    // listComments: state.admin.comments,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadTopTours: () => dispatch(actions.fetchTopTour()),
+    // loadTopTours: () => dispatch(actions.fetchTopTour()),
   };
 };
 

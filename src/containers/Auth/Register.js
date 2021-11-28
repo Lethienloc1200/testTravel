@@ -58,10 +58,10 @@ class Register extends Component {
     let { email, password, firstName, lastName } = this.state;
     // console.log(this.state);
     return (
-      <div className="user-redux-container">
+      <div className="user-redux-containery">
         <div className="title">Đăng kí</div>
 
-        <div className="user-rexdux-body">
+        <div className="user-rexdux-bodyy">
           <div className="container ">
             <form>
               <div className="form-row">
@@ -112,19 +112,19 @@ class Register extends Component {
 
               <button
                 type="button"
-                className="btn btn-primary mt-3 button_padding"
+                className="btn btn-primary buttondangky"
                 onClick={() => this.handleSaveUser()}
               >
-                Create
+                Đăng ký
               </button>
 
               <a href="http://localhost:3000/login">
                 <button
                   type="button"
-                  className="btn btn-warning mt-3 button_padding mx-5"
+                  className="btn btn-warning buttonnhap mx-5"
                 >
                   <i class="fas fa-arrow-right"> </i>
-                  Login now
+                  Đăng nhập
                 </button>
               </a>
             </form>

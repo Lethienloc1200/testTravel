@@ -330,6 +330,7 @@ export const fetchAllTourStart = (data) => {
       let res = await getAllTours("ALL");
       // let res1 = await getTopDoctorHomeService(3);
       // console.log("resss1 ", res1);
+
       if (res && res.errCode === 0) {
         dispatch(fetchAllTourSuccess(res.tours.reverse()));
       } else {
@@ -439,7 +440,7 @@ export const createNewComment = (data) => {
       if (res && res.errCode === 0) {
         toast.success("Create a new comment succeed !");
         dispatch(saveCommentSuccess());
-        dispatch(fetchAllCommentStart());
+        // dispatch(fetchAllCommentStart());
       } else {
         dispatch(saveCommentFailed());
         toast.error("Create a new comment err !");
@@ -459,6 +460,7 @@ export const saveCommentFailed = () => ({
 });
 
 // =============fetchAllCommentStart=========
+
 export const fetchAllCommentStart = (data) => {
   return async (dispatch, getState) => {
     try {

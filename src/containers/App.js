@@ -38,6 +38,8 @@ class App extends Component {
   }
 
   render() {
+    let userInfo = this.props.userInfo;
+    console.log("tennnnnnnnnnnnnnnnnnnn", userInfo);
     return (
       <Fragment>
         <Router history={history}>
@@ -84,7 +86,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     started: state.app.started,
-    isLoggedIn: state.user.isLoggedIn,
+    userInfo: state.user.userInfo,
   };
 };
 

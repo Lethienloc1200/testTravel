@@ -7,3 +7,52 @@
     flex-wrap: unset !important; //ghi đè
   }
 }
+.user-redux-containery {
+  background-image: url("https://cdn.vnlife.org/img/2020/5/9/e6f08c6030c3097261718ac6d3267a40.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  .title {
+    padding-top: 80px;
+    color: #fff;
+    font-size: 26px;
+    padding-bottom: -100px;
+  }
+
+  .user-rexdux-bodyy {
+    width: 561px;
+    padding: 10px;
+    height: 298px;
+    background: #2a2d2b71;
+    margin: auto;
+    margin-top: 76px;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 128, 36);
+    .form-row {
+      color: rgb(247, 238, 238);
+      font-size: 20px;
+    }
+    .buttondangky {
+      background-color: rgba(97, 250, 9, 0.326);
+
+      /* padding: 10px; */
+      margin-top: 57px;
+      width: 103px;
+      font-size: 20px;
+      border: 1px solid;
+      height: 40px;
+      line-height: 40px;
+    }
+    .buttonnhap {
+      background-color: rgba(190, 250, 9, 0.326);
+
+      margin-top: 57px;
+      width: 143px;
+      font-size: 20px;
+      border: 1px solid;
+      height: 40px;
+      color: #ffff !important;
+      line-height: 40px;
+    }
+  }
+}
