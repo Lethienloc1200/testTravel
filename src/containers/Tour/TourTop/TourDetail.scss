@@ -69,12 +69,13 @@
 
         .comment-tour {
           margin: 10px;
-          input {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #008a09;
-            border-radius: 6px;
+          input.star-rating {
+            display: none;
+          }
+          .star-star {
+            cursor: pointer;
+            transition: all 0.2;
+            // color: red !important;
           }
           textarea {
             width: 100%;

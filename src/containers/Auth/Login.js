@@ -112,6 +112,12 @@ class Login extends Component {
               <button onClick={() => this.handleLogin()}>Login</button>
             </div>
             <div className="col-12 ">
+              <a href="http://localhost:3000/register">
+                {" "}
+                <span className="register-pass">Đăng ký tài khoản</span>
+              </a>
+
+              <br></br>
               <span className="forgot-pass">Forgot your password ?</span>
             </div>
           </div>

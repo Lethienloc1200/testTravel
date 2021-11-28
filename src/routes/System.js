@@ -6,6 +6,7 @@ import TourRedux from "../containers/System/Admin/TourRedux";
 import UserRedux from "../containers/System/Admin/UserRedux";
 import ManageDoctor from "../containers/System/Admin/ManageDoctor";
 import Header from "../containers/Header/Header";
+import HomePage from "../containers/HomePage/HomePage";
 
 class System extends Component {
   render() {
@@ -20,6 +21,7 @@ class System extends Component {
               <Route path="/system/tour-redux" component={TourRedux} />
               <Route path="/system/user-redux" component={UserRedux} />
               <Route path="/system/manage-doctor" component={ManageDoctor} />
+              <Route path="/home" component={HomePage} />
 
               <Route
                 component={() => {
