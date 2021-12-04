@@ -8,10 +8,7 @@ const initialState = {
   users: [],
   tours: [],
   comments: [],
-  topDoctors: [],
   topTours: [],
-  allDoctors: [],
-  listDoctors: [],
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -97,18 +94,6 @@ const adminReducer = (state = initialState, action) => {
         ...state,
       };
 
-    //============fech top doctor=======
-    case actionTypes.FETCH_TOP_DOCTOR_SUCCESS:
-      state.topDoctors = action.dataDoctors;
-      return {
-        ...state,
-      };
-    case actionTypes.FETCH_TOP_DOCTOR_FAIDED:
-      state.topDoctors = [];
-      return {
-        ...state,
-      };
-
     //============fech top Tour=======
     case actionTypes.FETCH_TOP_TOUR_SUCCESS:
       state.topTours = action.dataTours;
@@ -117,18 +102,6 @@ const adminReducer = (state = initialState, action) => {
       };
     case actionTypes.FETCH_TOP_TOUR_FAIDED:
       state.topTours = [];
-      return {
-        ...state,
-      };
-
-    //============fech all doctor=======
-    case actionTypes.FETCH_ALL_DOCTOR_SUCCESS:
-      state.allDoctors = action.dataDR;
-      return {
-        ...state,
-      };
-    case actionTypes.FETCH_ALL_DOCTOR_FAIDED:
-      state.allDoctors = [];
       return {
         ...state,
       };

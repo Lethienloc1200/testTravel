@@ -15,8 +15,8 @@ import Register from "./Auth/Register";
 import HomePage from "./HomePage/HomePage";
 import System from "../routes/System";
 import TourDetail from "./Tour/TourTop/TourDetail";
-import { CustomToastCloseButton } from "../components/CustomToast";
-import ConfirmModal from "../components/ConfirmModal";
+// import { CustomToastCloseButton } from "../components/CustomToast";
+// import ConfirmModal from "../components/ConfirmModal";
 
 class App extends Component {
   handlePersistorState = () => {

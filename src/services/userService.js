@@ -29,12 +29,6 @@ const createNewCommentService = (data) => {
   // return axios.post("/api/create-new-comment", data);
   return axios.post(`/api/post-infor-comments`, data);
 };
-// const saveDetailDoctorService = (data) => {
-//   return axios.post(`/api/post-infor-doctors`, data);
-// };
-// const getDetailInforDoctor = (inputId) => {
-//   return axios.get(`/api/get-detail-doctor-by-id?id=${inputId}`);
-// };
 
 const deleteUserService = (userId) => {
   return axios.delete("/api/delete-user", {
@@ -62,18 +56,11 @@ const editTourService = (inputData) => {
 const getAllCodeService = (inputType) => {
   return axios.get(`/api/allcode?type=${inputType}`);
 };
-const getTopDoctorHomeService = (limit) => {
-  return axios.get(`/api/top-doctor-home?limit=${limit}`);
-};
+
 const getTopTourHomeService = (limit) => {
   return axios.get(`/api/top-tour-home?limit=${limit}`);
 };
-const getAllDoctors = () => {
-  return axios.get(`/api/get-all-doctors`);
-};
-const saveDetailDoctorService = (data) => {
-  return axios.post(`/api/post-infor-doctors`, data);
-};
+
 const getDetailInforTour = (inputId) => {
   return axios.get(`/api/get-detail-tour-by-id?id=${inputId}`); //đúng nè
   // return axios.get(`/api/get-detail-comment-by-id?id=${inputId}`);
@@ -96,10 +83,7 @@ export {
   editUserService,
   editTourService,
   getAllCodeService,
-  getTopDoctorHomeService,
   getTopTourHomeService,
-  getAllDoctors,
-  saveDetailDoctorService,
   getDetailInforTour,
   getDetailInforComment,
 };

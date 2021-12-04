@@ -44,18 +44,11 @@
       "menu": {
   
            "admin":{
-                  "manage-user":"Quản lý người dùng",
-                  "manage-doctor":"Quản lý bác sĩ",
-                  "manage-admin":"Quản lý admin",
-                  "crud":"CRUD user",
+                  "manage-user":"Quản lý hệ thống",
+                
                   "crud-redux": "Quản lý người dùng",
-                  "crud-tour-redux": "Quản lý TourRedux",
-                  "clinic":"Phòng khám",
-                  "manage-clinic":"Quản lý phòng khám",
-                  "specialty":"Chuyên khoa",
-                  "manage-specialty":"Quản lý chuyên khoa",
-                  "handbook":"Cẩm nang",
-                  "manage-handbook":"Quản lý cẩm nang"
+                  "crud-tour-redux": "Quản lý TourRedux"
+                 
   
               }  
       }, 

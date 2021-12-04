@@ -41,17 +41,10 @@
 
         "admin":{
             "manage-user":"User system",
-            "manage-doctor":"Manage docter",
-            "manage-admin":"Manage admin",
-            "crud":"CRUD user",
+
             "crud-redux": "User manage",
-            "crud-tour-redux": "Tour Manage",
-            "clinic":"Clinics",
-            "manage-clinic":"Manage clincis",
-            "specialty":"Specialty",
-            "manage-specialty":"Manage Specialty",
-            "handbook":"Handbook",
-            "manage-handbook":"Manage handbook"
+            "crud-tour-redux": "Tour Manage"
+           
 
         }
 
