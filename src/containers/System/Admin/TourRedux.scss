@@ -3,6 +3,7 @@
     color: #555;
     font-size: 14px;
     font-weight: bold;
+    // text-align: left;
   }
   flex-wrap: unset !important;
   .box-upload-image {
@@ -72,9 +73,11 @@
 .button_padding {
   color: rgb(4, 0, 133);
   padding: 0 10px;
-  align-items: center;
+  align-items: left;
   height: 40px;
   line-height: 40px;
+  // width: 100%;
+  // font-size: 23px;
 }
 
 .box-space {

@@ -3,6 +3,7 @@ import {
   getAllCodeService,
   createNewUserService,
   createNewTourService,
+  createNewBookingService,
   createNewCommentService,
   getAllUsers,
   getAllTours,
@@ -12,6 +13,7 @@ import {
   editUserService,
   editTourService,
   getTopTourHomeService,
+  getAllBookings,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 export const fechGenderStart = () => {
@@ -480,4 +482,58 @@ export const fetchAllCommentSuccess = (data) => ({
 });
 export const fetchAllCommentFailed = () => ({
   type: actionTypes.FETCH_ALL_COMMENT_FAIDED,
+});
+
+// ==================Fetch BOOKING TOUR================================
+
+export const createNewBooking = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await createNewBookingService(data);
+      console.log("booking check redux create sau", res);
+
+      if (res && res.errCode === 0) {
+        toast.success("Booking  succeed !");
+        dispatch(saveBookingSuccess());
+      } else {
+        dispatch(saveBookingFailed());
+        toast.error("Booking err !");
+      }
+    } catch (error) {
+      dispatch(saveBookingFailed());
+      toast.error("Booking err !");
+    }
+  };
+};
+
+export const saveBookingSuccess = () => ({
+  type: actionTypes.CREATE_TOUR_SUCCESS,
+});
+export const saveBookingFailed = () => ({
+  type: actionTypes.CREATE_TOUR_FAIDED,
+});
+// ======================Fectch all booking==============
+export const fetchAllBookingStart = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllBookings("ALL");
+      // let res1 = await getTopDoctorHomeService(3);
+      // console.log("resss1 ", res1);
+
+      if (res && res.errCode === 0) {
+        dispatch(fetchAllBookingSuccess(res.bookings.reverse()));
+      } else {
+        dispatch(fetchAllBookingFailed());
+      }
+    } catch (error) {
+      dispatch(fetchAllBookingFailed());
+    }
+  };
+};
+export const fetchAllBookingSuccess = (data) => ({
+  type: actionTypes.FETCH_ALL_BOOKING_SUCCESS,
+  bookings: data,
+});
+export const fetchAllBookingFailed = () => ({
+  type: actionTypes.FETCH_ALL_BOOKING_FAIDED,
 });

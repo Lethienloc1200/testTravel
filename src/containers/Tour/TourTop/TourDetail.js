@@ -99,12 +99,13 @@ class TourDetail extends Component {
                     }}
                   />
                 </div>
+                <div className="hotel-titlee">
+                  <p>Thông tin Khách sạn</p>
+                  <p className="descript-hotel">{detailTour.description}</p>
+                </div>
               </div>
               <div className="right">
-                <h3 className="place">
-                  Tour du lịch: 🎇 <b>{detailTour.place}</b>
-                </h3>
-
+                <h3 className="place">Tour du lịch: 🎇 {detailTour.place}</h3>
                 <span>
                   <button
                     className="btn btn-primary book-tour wow animate__swing"
@@ -116,28 +117,77 @@ class TourDetail extends Component {
                     Đặt tour
                   </button>
                 </span>
+                <p className="place">Khách sạn: {detailTour.hotel}</p>
                 <p className="place">
-                  Khách sạn: <b>{detailTour.hotel}</b>
+                  Phương tiện di chuyển: {detailTour.vehicle}
                 </p>
-                <p className="place">
-                  Phương tiện di chuyển: <b>{detailTour.vehicle}</b>
-                </p>
-                <p className="place">
-                  Lộ trình: <b>{detailTour.way}</b>
-                </p>
-                <p className="place">
-                  Giá: 🌿 <b>{detailTour.money}</b>
-                </p>
-                <p>
-                  <p>{detailTour.description}</p>
-                </p>
+                <p className="place">Lộ trình: {detailTour.way}</p>
+                <p className="place">Giá: 🌿 {detailTour.money}</p>
+
+                <div className="img-carosel-hotel">
+                  <div
+                    id="carouselExampleControls"
+                    class="carousel slide"
+                    data-ride="carousel"
+                  >
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img
+                          src={`${detailTour.image1}`}
+                          class="d-block w-100 img-hotel-detail"
+                          alt="..."
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src={`${detailTour.image2}`}
+                          class="d-block w-100 img-hotel-detail"
+                          alt="..."
+                        />
+                      </div>
+                      <div class="carousel-item">
+                        <img
+                          src={`${detailTour.image3}`}
+                          class="d-block w-100 img-hotel-detail"
+                          alt="..."
+                        />
+                      </div>
+                    </div>
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-target="#carouselExampleControls"
+                      data-slide="prev"
+                    >
+                      <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="sr-only">Previous</span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-target="#carouselExampleControls"
+                      data-slide="next"
+                    >
+                      <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="sr-only">Next</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+              <br></br>
             </div>
             <hr></hr>
             <hr></hr>
             <div className="bottom">
               <div className="left">
                 <div
+                  className="descript-tour-content"
                   dangerouslySetInnerHTML={{
                     __html: detailTour.contentHTML,
                   }}

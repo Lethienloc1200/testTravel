@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 // import UserManage from "../containers/System/UserManage";
 import TourRedux from "../containers/System/Admin/TourRedux";
+import TableManageBooking from "../containers/System/Admin/TableManageBooking";
 import UserRedux from "../containers/System/Admin/UserRedux";
 
 import Header from "../containers/Header/Header";
@@ -20,6 +21,10 @@ class System extends Component {
               {/* <Route path="/system/user-manage" component={UserManage} /> */}
               <Route path="/system/tour-redux" component={TourRedux} />
               <Route path="/system/user-redux" component={UserRedux} />
+              <Route
+                path="/system/table-booking"
+                component={TableManageBooking}
+              />
               <Route path="/home" component={HomePage} />
 
               <Route

@@ -1,37 +1,58 @@
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
+import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { emitter } from "../../../utils/emitter";
 
 class ModalBookingTour extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: "",
+      nameTour: "",
+      note: "",
+      email: "",
+      sdt: "",
+      dayBooking: "",
+    };
   }
+  handleOnChangeInput = (event, id) => {
+    let copyState = { ...this.state };
+    copyState[id] = event.target.value;
 
+    this.setState({
+      ...copyState,
+    });
+  };
   componentDidMount() {}
+  checkValidateInput = () => {
+    let isValid = true;
+    let arrCheck = ["name", "nameTour", "note", "email", "sdt", "dayBooking"];
 
+    for (let i = 0; i < arrCheck.length; i++) {
+      if (!this.state[arrCheck[i]]) {
+        isValid = false;
+        alert("Please enter a valid " + arrCheck[i]);
+        break;
+      }
+    }
+    return isValid;
+  };
   toggle = () => {
     this.props.toggleFromParent();
   };
 
-  //   checkValidateInput = () => {
-  //     let isValid = true;
-  //     let arrInput = ["email", "password", "firstName", "lastName", "address"];
-  //     for (let i = 0; i < arrInput.length; i++) {
-  //       if (!this.state[arrInput[i]]) {
-  //         isValid = false;
-  //         alert("Chưa điền " + arrInput[i]);
-  //         break;
-  //       }
-  //     }
-  //     return isValid;
-  //   };
-
-  handleBookingTour = (tour) => {
-    alert("chưa đk đc 😎");
-    console.log("đătk tour ", tour);
+  handleBookingTour = () => {
+    let isValid = this.checkValidateInput();
+    if (isValid === false) return;
+    this.props.createNewBooking({
+      name: this.state.name,
+      email: this.state.email,
+      sdt: this.state.sdt,
+      nameTour: this.state.nameTour,
+      note: this.state.note,
+      dayBooking: this.state.dayBooking,
+    });
   };
 
   render() {
@@ -45,11 +66,78 @@ class ModalBookingTour extends Component {
                 <form>
                   <div className="form-row">
                     <div className="form-group col-md-12">
-                      <label>Tên</label>
+                      <label>Họ và Tên</label>
+                      <input
+                        required
+                        type="text"
+                        className="form-control"
+                        onChange={(event) => {
+                          this.handleOnChangeInput(event, "name");
+                        }}
+                        value={this.state.name}
+                      />
+                    </div>
+                    <div className="form-group col-md-8 mx-2">
+                      <label>SDT</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        onChange={(event) => {
+                          this.handleOnChangeInput(event, "sdt");
+                        }}
+                        value={this.state.sdt}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group col-md-12">
+                      <label>Mã và tên tour</label>
+                      <input
+                        required
+                        type="text"
+                        name="nameTour"
+                        placeholder="ví dụ :  t197-Bà nà hill"
+                        className="form-control"
+                        onChange={(event) => {
+                          this.handleOnChangeInput(event, "nameTour");
+                        }}
+                        value={this.state.nameTour}
+                      />
+                    </div>
+                    <div className="form-group col-md-8 mx-2">
+                      <label>Đi vào ngày</label>
+                      <input
+                        required
+                        type="date"
+                        className="form-control"
+                        onChange={(event) => {
+                          this.handleOnChangeInput(event, "dayBooking");
+                        }}
+                        value={this.state.dayBooking}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group col-md-12">
+                      <label>Ghi chú</label>
+
+                      <input
+                        required
+                        type="text"
+                        className="form-control"
+                        onChange={(event) => {
+                          this.handleOnChangeInput(event, "note");
+                        }}
+                        value={this.state.note}
+                      />
+                    </div>
+                    <div className="form-group col-md-8">
+                      <label>Email</label>
+
                       <input
                         required
                         type="email"
-                        name="email"
                         className="form-control"
                         onChange={(event) => {
                           this.handleOnChangeInput(event, "email");
@@ -57,69 +145,12 @@ class ModalBookingTour extends Component {
                         value={this.state.email}
                       />
                     </div>
-                    <div className="form-group col-md-8 mx-2">
-                      <label>SDT</label>
-                      <input
-                        type="password"
-                        name="password"
-                        className="form-control"
-                        id="inputPassword4"
-                        onChange={(event) => {
-                          this.handleOnChangeInput(event, "password");
-                        }}
-                        value={this.state.password}
-                        required
-                      />
-                    </div>
                   </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-12">
-                      <label>Mã tour</label>
-                      <input
-                        required
-                        type="text"
-                        name="firstName"
-                        className="form-control"
-                        onChange={(event) => {
-                          this.handleOnChangeInput(event, "firstName");
-                        }}
-                        value={this.state.firstName}
-                      />
-                    </div>
-                    <div className="form-group col-md-8 mx-2">
-                      <label>Ngày đăng ký</label>
-                      <input
-                        required
-                        type="text"
-                        name="lastName"
-                        className="form-control"
-                        id="inputPassword4"
-                        onChange={(event) => {
-                          this.handleOnChangeInput(event, "lastName");
-                        }}
-                        value={this.state.lastName}
-                      />
-                    </div>
-                  </div>
-
-                  <label>Ghi chú</label>
-
-                  <input
-                    required
-                    type="text"
-                    name="address"
-                    className="form-control"
-                    id="inputAddress"
-                    onChange={(event) => {
-                      this.handleOnChangeInput(event, "address");
-                    }}
-                    value={this.state.address}
-                  />
 
                   <button
                     type="button"
                     className="btn btn-primary mt-3 button_padding"
-                    onClick={(item) => this.handleBookingTour(item)}
+                    onClick={() => this.handleBookingTour()}
                   >
                     Đặt tour
                   </button>
@@ -141,7 +172,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    createNewBooking: (data) => dispatch(actions.createNewBooking(data)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalBookingTour);

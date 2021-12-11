@@ -12,7 +12,7 @@ class AboutMedia extends Component {
         <div className="section-container">
           <div className="section-header">
             <div className="text-header-section wow slideInLeft">
-              Một số video đẹp nhất về du lịch Bà Nà Hill Đà Nẵng
+              Một số video đẹp nhất về du lịch VIET NAM
             </div>
           </div>
 
@@ -25,7 +25,7 @@ class AboutMedia extends Component {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/3FqtRWLlg9k"
+                src="https://www.youtube.com/embed/Au6LqK1UH8g"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

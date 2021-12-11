@@ -74,7 +74,7 @@ class TourPopular extends Component {
                     <div className="text-discript">
                       <p className="text">🎇{item.place}</p>
                       <p className="text-nho">{item.way}</p>
-                      <p className="text-nho">Khách sạn{item.hotel}</p>
+                      <p className="text-nho">Khách sạn: {item.hotel}</p>
                       <p className="text-nho">Giá:{item.money}</p>
                     </div>
                   </div>

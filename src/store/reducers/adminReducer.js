@@ -7,6 +7,7 @@ const initialState = {
   isLoadingGender: false,
   users: [],
   tours: [],
+  bookings: [],
   comments: [],
   topTours: [],
 };
@@ -78,6 +79,17 @@ const adminReducer = (state = initialState, action) => {
       };
     case actionTypes.FETCH_ALL_TOUR_FAIDED:
       state.tours = [];
+      return {
+        ...state,
+      };
+    // ============fech all booking=======
+    case actionTypes.FETCH_ALL_BOOKING_SUCCESS:
+      state.bookings = action.bookings;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_ALL_BOOKING_FAIDED:
+      state.bookings = [];
       return {
         ...state,
       };

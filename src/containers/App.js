@@ -12,6 +12,7 @@ import { path } from "../utils";
 import Home from "../routes/Home";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
+import Bookingok from "./Auth/Bookingok";
 import HomePage from "./HomePage/HomePage";
 import System from "../routes/System";
 import TourDetail from "./Tour/TourTop/TourDetail";
@@ -50,6 +51,7 @@ class App extends Component {
               <Switch>
                 <Route path={path.HOME} exact component={Home} />
                 <Route path={path.REGISTER} exact component={Register} />
+                <Route path={path.BOOKINGOK} exact component={Bookingok} />
                 <Route
                   path={path.LOGIN}
                   component={userIsNotAuthenticated(Login)}

@@ -43,7 +43,8 @@
             "manage-user":"User system",
 
             "crud-redux": "User manage",
-            "crud-tour-redux": "Tour Manage"
+            "crud-tour-redux": "Tour Manage",
+            "crud-booking-redux":"Table Booking"
            
 
         }

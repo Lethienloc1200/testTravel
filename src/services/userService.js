@@ -10,6 +10,9 @@ const getAllUsers = (inputId) => {
 const getAllTours = (inputId) => {
   return axios.get(`/api/get-all-tours?id=${inputId}`);
 };
+const getAllBookings = (inputId) => {
+  return axios.get(`/api/get-all-bookings?id=${inputId}`);
+};
 const getAllComments = (inputId) => {
   // console.log("11222222223333333333 comment from service:", inputId);
   return axios.get(`/api/get-detail-comment-by-id?id=${inputId}`);
@@ -23,6 +26,10 @@ const createNewUserService = (data) => {
 const createNewTourService = (data) => {
   console.log("check data tour from service:", data);
   return axios.post("/api/create-new-tour", data);
+};
+const createNewBookingService = (data) => {
+  console.log("check data Booking from service:", data);
+  return axios.post("/api/create-new-booking", data);
 };
 const createNewCommentService = (data) => {
   console.log("check data comment from service:", data);
@@ -75,6 +82,7 @@ export {
   getAllUsers,
   getAllTours,
   getAllComments,
+  getAllBookings,
   createNewUserService,
   createNewTourService,
   createNewCommentService,
@@ -86,4 +94,5 @@ export {
   getTopTourHomeService,
   getDetailInforTour,
   getDetailInforComment,
+  createNewBookingService,
 };

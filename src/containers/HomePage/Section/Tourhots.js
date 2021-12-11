@@ -39,7 +39,39 @@ class Tourhots extends Component {
             </div>
 
             <div className="customize-img start star">
-              <div className="image-section img-tourhots" />
+              <div className="image-section img-tourhots1" />
+              <div className="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <p>5 star Review</p>
+              </div>
+              <div className="text-discript">
+                <p className="text">Tour BÀ NÀ</p>
+                <p className="text-nho">Lộ trình:Đà Nẫng</p>
+                <p className="text-nho">Phương tiện: Ô tô</p>
+                <p className="text-nho">Khách sạn : 4 sao</p>
+              </div>
+            </div>
+            <div className="customize-img start star">
+              <div className="image-section img-tourhots2" />
+              <div className="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <p>5 star Review</p>
+              </div>
+              <div className="text-discript">
+                <p className="text">Phong Nha Kẻ Bàng</p>
+                <p className="text-nho">Lộ trình:ĐÀ Nẫng</p>
+                <p className="text-nho">Phương tiện: Ô tô</p>
+                <p className="text-nho">Khách sạn : 6sao</p>
+              </div>
+            </div>
+            <div className="customize-img start star">
+              <div className="image-section img-tourhots3" />
               <div className="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -55,39 +87,7 @@ class Tourhots extends Component {
               </div>
             </div>
             <div className="customize-img start star">
-              <div className="image-section img-tourhots" />
-              <div className="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <p>5 star Review</p>
-              </div>
-              <div className="text-discript">
-                <p className="text">Tour Châu Đốc</p>
-                <p className="text-nho">Lộ trình: HCM-Đà Nẫng</p>
-                <p className="text-nho">Phương tiện: Ô tô</p>
-                <p className="text-nho">Khách sạn : 2 sao</p>
-              </div>
-            </div>
-            <div className="customize-img start star">
-              <div className="image-section img-tourhots" />
-              <div className="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <p>5 star Review</p>
-              </div>
-              <div className="text-discript">
-                <p className="text">Tour Châu Đốc</p>
-                <p className="text-nho">Lộ trình: HCM-Đà Nẫng</p>
-                <p className="text-nho">Phương tiện: Ô tô</p>
-                <p className="text-nho">Khách sạn : 2 sao</p>
-              </div>
-            </div>
-            <div className="customize-img start star">
-              <div className="image-section img-tourhots" />
+              <div className="image-section img-tourhots4" />
               <div className="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>

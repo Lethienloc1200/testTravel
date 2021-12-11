@@ -33,6 +33,9 @@ class TourRedux extends Component {
       place: "",
       description: "",
       image: "",
+      image1: "",
+      image2: "",
+      image3: "",
       way: "",
       vehicle: "",
       hotel: "",
@@ -55,6 +58,9 @@ class TourRedux extends Component {
         place: "",
         description: "",
         image: "",
+        image1: "",
+        image2: "",
+        image3: "",
         way: "",
         vehicle: "",
         hotel: "",
@@ -120,6 +126,9 @@ class TourRedux extends Component {
         place: this.state.place,
         description: this.state.description,
         image: this.state.image,
+        image1: this.state.image1,
+        image2: this.state.image2,
+        image3: this.state.image3,
         way: this.state.way,
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
@@ -137,6 +146,9 @@ class TourRedux extends Component {
         place: this.state.place,
         description: this.state.description,
         image: this.state.image,
+        image1: this.state.image1,
+        image2: this.state.image2,
+        image3: this.state.image3,
         way: this.state.way,
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
@@ -160,6 +172,9 @@ class TourRedux extends Component {
       vehicle: tour.vehicle,
       hotel: tour.hotel,
       money: tour.money,
+      image1: tour.image1,
+      image2: tour.image2,
+      image3: tour.image3,
       image: "",
       contentMarkdown: tour.contentMarkdown,
       contentHTML: tour.contentHTML,
@@ -171,11 +186,22 @@ class TourRedux extends Component {
 
   render() {
     let language = this.props.language;
-    let { place, description, way, vehicle, hotel, money, image } = this.state;
+    let {
+      place,
+      description,
+      way,
+      vehicle,
+      hotel,
+      money,
+      image,
+      image1,
+      image2,
+      image3,
+    } = this.state;
     // console.log(this.state);
     return (
       <div className="user-redux-container">
-        <div className="title">Quản lý tour du lịch </div>
+        <div className="title mt-4 mb-5">Quản lý tour du lịch </div>
         <div className="user-rexdux-body">
           <div className="container mb-5">
             <form>
@@ -226,7 +252,7 @@ class TourRedux extends Component {
               </div>
 
               <div className="form-row">
-                <div className="form-group col-md-3">
+                <div className="form-group col-md-6">
                   <p className="title-tour-form">Khách sạn</p>
                   <input
                     required
@@ -236,7 +262,7 @@ class TourRedux extends Component {
                     onChange={(event) => this.onChangeInput(event, "hotel")}
                   />
                 </div>
-                <div className="form-group col-md-9 mx-2">
+                <div className="form-group col-md-6 mx-2">
                   <p className="title-tour-form">Tiền</p>
                   <input
                     type="text"
@@ -270,7 +296,7 @@ class TourRedux extends Component {
                   </div>
                 </div>
                 <div className="form-group col-md-9 mx-2">
-                  <p className="title-tour-form">Mô tả ngắn</p>
+                  <p className="title-tour-form">Thông tin khách sạn</p>
                   <textarea
                     style={{ height: "180px", width: "100%" }}
                     type="description"
@@ -280,7 +306,28 @@ class TourRedux extends Component {
                     onChange={(event) =>
                       this.onChangeInput(event, "description")
                     }
-                  />
+                  />{" "}
+                  <input
+                    style={{ width: "30%", padding: "5px" }}
+                    type="text"
+                    value={image1}
+                    onChange={(event) => this.onChangeInput(event, "image1")}
+                    placeholder="Ảnh hotel 1"
+                  ></input>
+                  <input
+                    style={{ width: "30%", padding: "5px", margin: "20px" }}
+                    placeholder="Ảnh hotel 2"
+                    type="text"
+                    value={image2}
+                    onChange={(event) => this.onChangeInput(event, "image2")}
+                  ></input>
+                  <input
+                    style={{ width: "30%", padding: "5px" }}
+                    type="text"
+                    value={image3}
+                    onChange={(event) => this.onChangeInput(event, "image3")}
+                    placeholder="Ảnh hotel 3"
+                  ></input>
                 </div>
               </div>
               <MdEditor

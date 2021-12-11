@@ -47,8 +47,8 @@
                   "manage-user":"Quản lý hệ thống",
                 
                   "crud-redux": "Quản lý người dùng",
-                  "crud-tour-redux": "Quản lý TourRedux"
-                 
+                  "crud-tour-redux": "Quản lý TourRedux",
+                  "crud-booking-redux":"Quản lý Booking"
   
               }  
       }, 

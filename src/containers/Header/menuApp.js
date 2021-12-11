@@ -15,6 +15,10 @@ export const adminMenu = [
         name: "menu.admin.crud-tour-redux",
         link: "/system/tour-redux",
       },
+      {
+        name: "menu.admin.crud-booking-redux",
+        link: "/system/table-booking",
+      },
     ],
   },
 ];

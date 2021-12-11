@@ -5,6 +5,7 @@ export const path = {
   SYSTEM: "/system",
   HOMEPAGE: "/home",
   REGISTER: "/register",
+  BOOKINGOK: "/bookingok",
   DETAIL_TOUR: "/detail-tour/:id",
 };
 
