@@ -39,6 +39,8 @@ class TourRedux extends Component {
       way: "",
       vehicle: "",
       hotel: "",
+      location: "",
+      map: "",
       money: "",
       contentMarkdown: "",
       contentHTML: "",
@@ -65,6 +67,8 @@ class TourRedux extends Component {
         vehicle: "",
         hotel: "",
         money: "",
+        location: "",
+        map: "",
         contentMarkdown: "",
         contentHTML: "",
 
@@ -96,14 +100,22 @@ class TourRedux extends Component {
   onChangeInput = (event, id) => {
     let copyState = { ...this.state, isOpen: false };
     copyState[id] = event.target.value;
-
+    console.log("check value tour", this.state);
     this.setState({
       ...copyState,
     });
   };
   checkValidateInput = () => {
     let isValid = true;
-    let arrCheck = ["place", "description", "way", "vehicle", "hotel", "money"];
+    let arrCheck = [
+      "place",
+      "description",
+      "way",
+      "vehicle",
+      "hotel",
+      "money",
+      "location",
+    ];
 
     for (let i = 0; i < arrCheck.length; i++) {
       if (!this.state[arrCheck[i]]) {
@@ -129,6 +141,8 @@ class TourRedux extends Component {
         image1: this.state.image1,
         image2: this.state.image2,
         image3: this.state.image3,
+        location: this.state.location,
+        map: this.state.map,
         way: this.state.way,
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
@@ -152,6 +166,8 @@ class TourRedux extends Component {
         way: this.state.way,
         vehicle: this.state.vehicle,
         hotel: this.state.hotel,
+        location: this.state.location,
+        map: this.state.map,
         money: this.state.money,
         contentMarkdown: this.state.contentMarkdown,
         contentHTML: this.state.contentHTML,
@@ -176,6 +192,8 @@ class TourRedux extends Component {
       image2: tour.image2,
       image3: tour.image3,
       image: "",
+      location: tour.location,
+      map: tour.map,
       contentMarkdown: tour.contentMarkdown,
       contentHTML: tour.contentHTML,
       previewImgUrl: imageBase64,
@@ -197,6 +215,8 @@ class TourRedux extends Component {
       image1,
       image2,
       image3,
+      location,
+      map,
     } = this.state;
     // console.log(this.state);
     return (
@@ -207,7 +227,7 @@ class TourRedux extends Component {
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <p className="title-tour-form">Địa điểm du lịch</p>
+                  <p className="title-tour-form">Tên tour</p>
                   <input
                     required
                     type="place"
@@ -217,14 +237,28 @@ class TourRedux extends Component {
                   />
                 </div>
                 <div className="form-group col-md-6">
-                  <p className="title-tour-form">Chưa nghĩ ra</p>
+                  <p className="title-tour-form">Địa điểm</p>
+                  <select
+                    className="mx-2"
+                    value={location}
+                    name="location"
+                    onChange={(event) => this.onChangeInput(event, "location")}
+                  >
+                    <option value="Chưa phân loại">Lựa chọn địa điểm</option>
+                    <option value="Quy Nhơn">Quy Nhơn</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Hội An">Hội An</option>
+                    <option value="HCM">HCM</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Cà Mau">Cà Mau</option>
+                    <option value="Đà Lạt">Đà Lạt</option>
+                  </select>
                   <input
-                    required
-                    type="chuanghira"
-                    className="form-control"
-                    disabled
-                    // value={place}
-                    // onChange={(event) => this.onChangeInput(event, "place")}
+                    className="form-control mx-2"
+                    placeholder="Dán vào đường link bản đồ"
+                    value={map}
+                    name="map"
+                    onChange={(event) => this.onChangeInput(event, "map")}
                   />
                 </div>
               </div>

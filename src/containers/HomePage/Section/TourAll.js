@@ -48,8 +48,9 @@ class TourAll extends Component {
         return item;
       } else if (
         item.place.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        item.way.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        item.money.toLowerCase().includes(filter.toLocaleLowerCase())
+        item.money.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        item.location.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        item.hotel.toLowerCase().includes(filter.toLocaleLowerCase())
       ) {
         return item;
       }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from "../../../utils";
 import { getDetailInforComment } from "../../../services/userService";
 import * as actions from "../../../store/actions";
 import { withRouter } from "react-router";
@@ -11,46 +12,27 @@ class CommentRedux extends Component {
     this.state = {
       // commentsRedux: {},
       arrComment: [],
-      description: "",
       star: null,
+      description: "",
+      titleComment: "",
+      typeOf: "",
+      typeOfHotel: "",
+      timeTravel: "",
+      imageComment: "",
+      previewImgUrl: "",
       commentId: "",
       userId: "",
       hoverStar: null,
     };
   }
-  // async componentDidMount() {
-  //   this.props.fetchAllCommentRedux();
-  // }
-  async componentDidMount() {
-    // if (
-    //   this.props.match &&
-    //   this.props.match.params &&
-    //   this.props.match.params.id
-    // ) {
-    //   let id = this.props.match.params.id;
-    //   let res = await getDetailInforComment(id);
-    //   console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", res);
-    //   if (res && res.errCode === 0) {
-    //     this.setState({
-    //       arrComment: res.data,
-    //     });
-    //   }
-    // }
-  }
-  componentDidUpdate(prevProps, PrevState, snapshot) {
-    // if (prevProps.listComments !== this.props.listComments) {
-    //   this.setState({
-    //     arrComment: this.props.listComments,
-    //     star: "",
-    //     description: "",
-    //   });
-    // }
-  }
+
+  async componentDidMount() {}
+  componentDidUpdate(prevProps, PrevState, snapshot) {}
 
   onChangeInput = (event, id) => {
     let copyState = { ...this.state, isOpen: false };
     copyState[id] = event.target.value;
-
+    console.log("checkk  typeofffffff", this.state);
     this.setState({
       ...copyState,
     });
@@ -85,39 +67,45 @@ class CommentRedux extends Component {
       this.props.createNewComment({
         star: this.state.star,
         description: this.state.description,
+        typeOf: this.state.typeOf,
+        typeOfHotel: this.state.typeOfHotel,
+        timeTravel: this.state.timeTravel,
+        titleComment: this.state.titleComment,
+        imageComment: this.state.imageComment,
         commentId: this.props.detailTour.id,
         userId: this.props.userInfo.firstName,
       });
     }
   };
-  // showRatings(rating) {
-  //   var result = [];
-  //   for (var i = 1; i <= rating; i++) {
-  //     result.push(<i className="fas fa-star"></i>);
-  //   }
-  //   for (var j = 1; j <= 5 - rating; j++) {
-  //     result.push(<i class="far fa-star"></i>);
-  //     return result;
-  //   }
-  // }
+  handleOnChangeImage = async (event) => {
+    let data = event.target.files;
+    let file = data[0];
+    if (file) {
+      let Base64 = await CommonUtils.getBase64(file);
+      let objectUrl = URL.createObjectURL(file);
+      this.setState({
+        previewImgUrl: objectUrl,
+        imageComment: Base64,
+      });
+    }
+  };
 
   render() {
-    let { star, description, hoverStar } = this.state;
+    let { star, description, hoverStar, timeTravel, titleComment } = this.state;
     console.log("abcccccccccccccccccccccccccccccccccccccccc", this.state);
     let detailTour = this.props.detailTour;
     let arrComment = this.props.arrComment;
     let userInfo = this.props.userInfo;
     // console.log("tennnnnnnnnnnnnnnnnnnn comment", userInfo);
     // console.log("teeeeeeeeeettttttttttttttttt comment", detailTour);
-    // console.log(
-    //   "teeeeeeeeeettttttttttttttttt arrrrrrrrrrrrr comment",
-    //   arrComment
-    // );
+    console.log(
+      "teeeeeeeeeettttttttttttttttt arrrrrrrrrrrrr comment",
+      arrComment
+    );
 
     return (
       <div className="comment-tour">
         <h3>Đánh giá tour</h3>
-
         {[...Array(5)].map((rating, i) => {
           const ratingValue = i + 1;
           return (
@@ -145,30 +133,121 @@ class CommentRedux extends Component {
             </>
           );
         })}
-
-        {/* <input
-          className="star-rating"
-          placeholder="số sao (chưa fix😂)"
+        <br></br>
+        <input
+          className="titleComment"
           type="text"
-          value={star}
-          onChange={(event) => this.onChangeInput(event, "star")}
-        /> */}
-        {/* <input type="text" placeholder="Tiêu đề" /> */}
+          placeholder="Tiêu đề bài đánh giá của bạn"
+          value={titleComment}
+          onChange={(event) => this.onChangeInput(event, "titleComment")}
+        />
         <textarea
           type="text"
           placeholder="Nội dung đánh giá"
           value={description}
           onChange={(event) => this.onChangeInput(event, "description")}
         />
+        <p className="labelTitle">Loại chuyến đi đó là gì?</p>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOf"
+          value="Doanh nghiệp"
+          onClick={(event) => this.onChangeInput(event, "typeOf")}
+        />
+        <label className="lableabc">Doanh nghiệp</label>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOf"
+          value="Cặp đôi"
+          onClick={(event) => this.onChangeInput(event, "typeOf")}
+        />
+        <label className="lableabc">Cặp đôi</label>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOf"
+          value="Gia đình"
+          onClick={(event) => this.onChangeInput(event, "typeOf")}
+        />{" "}
+        <label className="lableabc">Gia đình</label>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOf"
+          value="Một mình"
+          onClick={(event) => this.onChangeInput(event, "typeOf")}
+        />
+        <label className="lableabc">Một mình</label>
+        <br></br>
+        <label className="labelTitle" for="bdaymonth">
+          Đi khi nào ?
+        </label>
+        <input
+          className="bdaymonth"
+          type="month"
+          value={timeTravel}
+          id="bdaymonth"
+          onChange={(event) => this.onChangeInput(event, "timeTravel")}
+        />
+        <br></br>
+        <p className="labelTitle">Giá Khách sạn như thế nào</p>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOfHotel"
+          value="Bình dân"
+          onClick={(event) => this.onChangeInput(event, "typeOfHotel")}
+        />
+        <label className="lableabc">Bình dân</label>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOfHotel"
+          value="Hạng trung"
+          onClick={(event) => this.onChangeInput(event, "typeOfHotel")}
+        />
+        <label className="lableabc">Hạng trung</label>
+        <input
+          className="inputabc"
+          type="radio"
+          name="typeOfHotel"
+          value="Sang trọng"
+          onClick={(event) => this.onChangeInput(event, "typeOfHotel")}
+        />
+        <label className="lableabc">Sang trọng</label>
+        <br></br>
+        <label for="anh" className="lableabcanh">
+          <i className="fas fa-photo-video labelTitle"></i>
+        </label>
+        <input
+          className="anh"
+          id="anh"
+          type="file"
+          onChange={(event) => this.handleOnChangeImage(event)}
+        />
+        <label> chọn ảnh</label>
+        <br></br>
+        <br></br>
         <button
           className="btn btn-primary"
           onClick={() => this.commitComment()}
         >
           Gửi
         </button>
+        {/* ===========Hiển thị Thông tin đánh
+        giá========= */}
         <h3 className="mt-3 mb-3">Thông tin đánh giá:</h3>
         {arrComment.length > 0 &&
           arrComment.map((item, index) => {
+            let imageBase64 = "";
+            if (item.Comment && item.Comment.imageComment) {
+              imageBase64 = new Buffer(
+                item.Comment && item.Comment.imageComment,
+                "base64"
+              ).toString("binary");
+            }
             return (
               <div className="container-comment-box">
                 <div className="leftt">
@@ -224,11 +303,36 @@ class CommentRedux extends Component {
                         {(item.Comment && item.Comment.createdAt) || ""}
                       </span>
                     </div>
+                    <div className="tieude">
+                      tiêu đề đánh giá:{" "}
+                      {(item.Comment && item.Comment.titleComment) || ""}
+                    </div>
                     <div>
                       {(item.Comment && item.Comment.description && (
                         <p className="descript">{item.Comment.description}</p>
-                      )) || <p></p>}
+                      )) ||
+                        ""}
                     </div>
+                    <li className="loaichuyen">
+                      Loại chuyến đi:{" "}
+                      {(item.Comment && item.Comment.typeOf) || ""}
+                    </li>
+                    <li>Giá cả: {item.Comment && item.Comment.typeOfHotel}</li>
+                    <li>
+                      Thời gian:{" "}
+                      {(item.Comment && item.Comment.timeTravel) || ""}
+                    </li>
+                    {imageBase64 ? (
+                      <div
+                        className="imgtourr"
+                        style={{
+                          backgroundImage: `url(${imageBase64})`,
+                        }}
+                      />
+                    ) : (
+                      <p></p>
+                      //nếu k có ảnh thì để trống
+                    )}
                   </div>
                 </div>
               </div>

@@ -192,6 +192,14 @@ class TourDetail extends Component {
                     __html: detailTour.contentHTML,
                   }}
                 ></div>
+
+                <iframe
+                  src={`${detailTour.map}`}
+                  width="600"
+                  height="450"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
               </div>
               <hr></hr>
               <div className="right">
